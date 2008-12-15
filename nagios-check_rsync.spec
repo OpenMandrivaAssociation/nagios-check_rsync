@@ -1,6 +1,6 @@
 %define name	nagios-check_rsync
 %define version	1.02
-%define release	%mkrel 2
+%define release	%mkrel 3
 
 Name:		%{name}
 Version:	%{version}
@@ -11,6 +11,7 @@ Group:		Networking/Other
 Url:        http://www.nagiosexchange.org/cgi-bin/page.cgi?g=Detailed%2F2094.html
 Source0:    check_rsync
 Requires:   rsync
+BuildArch:  noarch
 BuildRoot:  %{_tmppath}/%{name}-%{version}
 
 %description
@@ -24,17 +25,17 @@ availability. It also supports authentication on modules.
 %install
 rm -rf %{buildroot}
 
-install -d -m 755 %{buildroot}%{_libdir}/nagios/plugins
-install -m 755 %{SOURCE0} %{buildroot}%{_libdir}/nagios/plugins
+install -d -m 755 %{buildroot}%{_datadir}/nagios/plugins
+install -m 755 %{SOURCE0} %{buildroot}%{_datadir}/nagios/plugins
 
-perl -pi -e 's|/usr/local/nagios/libexec|%{_libdir}/nagios/plugins|' \
-    %{buildroot}%{_libdir}/nagios/plugins/check_rsync
+perl -pi -e 's|/usr/local/nagios/libexec|%{_datadir}/nagios/plugins|' \
+    %{buildroot}%{_datadir}/nagios/plugins/check_rsync
 
 install -d -m 755 %{buildroot}%{_sysconfdir}/nagios/plugins.d
 cat > %{buildroot}%{_sysconfdir}/nagios/plugins.d/check_rsync.cfg <<'EOF'
 define command{
 	command_name	check_rsync
-	command_line	%{_libdir}/nagios/plugins/check_rsync -H $HOSTADDRESS$
+	command_line	%{_datadir}/nagios/plugins/check_rsync -H $HOSTADDRESS$
 }
 EOF
 
@@ -43,7 +44,6 @@ rm -rf %buildroot
 
 %files 
 %defattr(-,root,root)
-%defattr(-,root,root)
-%{_libdir}/nagios/plugins/check_rsync
+%{_datadir}/nagios/plugins/check_rsync
 %config(noreplace) %{_sysconfdir}/nagios/plugins.d/check_rsync.cfg
 
