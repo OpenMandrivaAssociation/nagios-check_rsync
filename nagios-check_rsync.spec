@@ -1,6 +1,6 @@
 %define name	nagios-check_rsync
 %define version	1.02
-%define release	%mkrel 3
+%define release	%mkrel 4
 
 Name:		%{name}
 Version:	%{version}
