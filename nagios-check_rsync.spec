@@ -47,3 +47,29 @@ rm -rf %buildroot
 %{_datadir}/nagios/plugins/check_rsync
 %config(noreplace) %{_sysconfdir}/nagios/plugins.d/check_rsync.cfg
 
+
+
+%changelog
+* Sat Dec 11 2010 Oden Eriksson <oeriksson@mandriva.com> 1.02-5mdv2011.0
++ Revision: 620463
+- the mass rebuild of 2010.0 packages
+
+* Mon Sep 14 2009 Thierry Vignaud <tv@mandriva.org> 1.02-4mdv2010.0
++ Revision: 440226
+- rebuild
+
+* Mon Dec 15 2008 Guillaume Rousse <guillomovitch@mandriva.org> 1.02-3mdv2009.1
++ Revision: 314629
+- now a noarch package
+
+* Sat Oct 18 2008 Guillaume Rousse <guillomovitch@mandriva.org> 1.02-2mdv2009.1
++ Revision: 294898
+- really use 1.02 source
+
+* Sat Oct 18 2008 Guillaume Rousse <guillomovitch@mandriva.org> 1.02-1mdv2009.1
++ Revision: 294891
+- import nagios-check_rsync
+
+
+* Sat Oct 18 2008 Guillaume Rousse <guillomovitch@mandriva.org> 1.02-1mdv2009.1
+- first mdv release
