@@ -4,7 +4,7 @@ Release:	7
 Summary:    Nagios rsync plugin
 License:    GPL
 Group:		Networking/Other
-Url:        http://exchange.nagios.org/directory/Plugins/Network-Protocols/Rsync/check_rsync/details
+Url:        https://exchange.nagios.org/directory/Plugins/Network-Protocols/Rsync/check_rsync/details
 Source0:    check_rsync
 Requires:   rsync
 BuildArch:  noarch
